@@ -1,7 +1,7 @@
 import Content from "@/lib/container/Content";
 
 import type { Metadata, Viewport } from 'next'
-import styles from '../TextToolsPage.module.css';
+import styles from '../QrCodePage.module.css';
 import Tools from "../_components/Tools";
 
 export const metadata: Metadata = {

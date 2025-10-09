@@ -49,7 +49,7 @@ export default function Tools(props: { locale: 'en' | 'de' }) {
                         }}><DownloadIcon />JPEG</Button>
                     </div>
                     <div className={[styles.controlsRow, styles.colorControls].join(' ')}>
-                        <div className={styles.colorPicker}>Foreground Color:
+                        <div className={styles.colorPicker}>{props.locale === 'en' ? "Foreground Color:" : "Vordergrundfarbe:"}
                             <div
                                 className={styles.swatch}
                                 style={{ backgroundColor: foregroundColor }}
@@ -63,7 +63,7 @@ export default function Tools(props: { locale: 'en' | 'de' }) {
                             }}></input>
                         </div>
                         <div className={styles.divider}></div>
-                        <div className={styles.colorPicker}>Background Color:
+                        <div className={styles.colorPicker}>{props.locale === 'en' ? "Background Color:" : "Hintergrundfarbe:"}
                             <div
                                 className={styles.swatch}
                                 style={{ backgroundColor: backgroundColor }}
