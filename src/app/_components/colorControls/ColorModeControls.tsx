@@ -15,19 +15,19 @@ export default function ColorModeControls(props: {
                     <input type="radio" id="solidColor" name="colorModes" value="solidColor" checked={colorMode === ColorMode.Solid} onChange={() => {
                         setColorMode(ColorMode.Solid);
                     }} />
-                    <label htmlFor="solidColor">Solid Color</label>
+                    <label htmlFor="solidColor">{props.locale === 'en' ? 'Solid Color' : 'Farbe'}</label>
                 </div>
                 <div className={styles.colorModeOption}>
                     <input type="radio" id="fgGradient" name="colorModes" value="fgGradient" checked={colorMode === ColorMode.ForegroundGradient} onChange={() => {
                         setColorMode(ColorMode.ForegroundGradient);
                     }} />
-                    <label htmlFor="fgGradient">Foreground Gradient</label>
+                    <label htmlFor="fgGradient">{props.locale === 'en' ? 'Foreground Gradient' : 'Vordergrund Gradient'}</label>
                 </div>
                 <div className={styles.colorModeOption}>
                     <input type="radio" id="bgGradient" name="colorModes" value="bgGradient" checked={colorMode === ColorMode.BackgroundGradient} onChange={() => {
                         setColorMode(ColorMode.BackgroundGradient);
                     }} />
-                    <label htmlFor="bgGradient">Background Gradient</label>
+                    <label htmlFor="bgGradient">{props.locale === 'en' ? 'Background Gradient' : 'Hintergrund Gradient'}</label>
                 </div>
             </div>
         </div>
