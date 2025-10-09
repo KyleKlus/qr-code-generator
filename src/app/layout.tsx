@@ -11,6 +11,8 @@ import { Fira_Code } from "next/font/google";
 import { ThemeProvider } from '@/lib/provider/theme-provider';
 import ThemeButton from '@/lib/interaction/forms/buttons/ThemeButton';
 
+export const basePath = '/qr-code-generator';
+
 const firaCode = Fira_Code({ weight: '400', subsets: ['latin'] });
 
 interface ILayoutProps {
