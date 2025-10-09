@@ -6,6 +6,7 @@ import QRCode from "react-qr-code";
 import { Button } from "react-bootstrap";
 import * as svgHandler from "./svgHandler";
 import { DownloadIcon } from "lucide-react";
+import CustomQRCodeRenderer from "./CustomQRCodeRenderer";
 
 const DEFAULT_SVG_FILENAME = 'QR_Code.svg';
 
@@ -79,7 +80,7 @@ export default function Tools(props: { locale: 'en' | 'de' }) {
                     </div>
                 </div>
                 <div className={styles.qrCodeArea} id="QRCodeArea">
-                    <QRCode value={link} size={350} fgColor={foregroundColor} bgColor={backgroundColor} />
+                    <CustomQRCodeRenderer link={link} foregroundColor={foregroundColor} backgroundColor={backgroundColor} />
                 </div>
             </div>
         </div>

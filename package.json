@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --disable-telemetry",
+    "dev": "next dev",
     "prebuild": "next telemetry disable",
-    "build": "next build --disable-telemetry",
-    "start": "next start --disable-telemetry",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
