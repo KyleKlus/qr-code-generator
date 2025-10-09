@@ -2,47 +2,86 @@
 
 import { useState } from "react";
 import styles from './Tools.module.css';
-import { ToolMode } from "./ToolMode";
-import { Nav } from "react-bootstrap";
-import ReplaceStringToolPage from "./ReplaceStringToolPage";
-import ReplaceStringBetweenToolPage from "./ReplaceStringBetweenToolPage";
-import CountOccurrencesToolPage from "./CountOccurrencesToolPage";
-import ReplaceStringWithRegexToolPage from "./ReplaceStringWithRegexToolPage";
+import QRCode from "react-qr-code";
+import { Button } from "react-bootstrap";
+import * as svgHandler from "./svgHandler";
+import { DownloadIcon } from "lucide-react";
+
+const DEFAULT_SVG_FILENAME = 'QR_Code.svg';
 
 export default function Tools(props: { locale: 'en' | 'de' }) {
-    const [text, setText] = useState("");
-    const [mode, setMode] = useState<ToolMode>(ToolMode.ReplaceString);
-
-    function getTranslation(mode: ToolMode): string {
-        switch (mode) {
-            case ToolMode.ReplaceString:
-                return props.locale === 'en' ? ToolMode.ReplaceString : "Ersetze Text";
-            case ToolMode.ReplaceStringBetween:
-                return props.locale === 'en' ? ToolMode.ReplaceStringBetween : "Ersetze Text zwischen";
-            case ToolMode.ReplaceStringWithRegex:
-                return props.locale === 'en' ? ToolMode.ReplaceStringWithRegex : "Regex: Ersetze Text";
-            case ToolMode.CountOccurrences:
-                return props.locale === 'en' ? ToolMode.CountOccurrences : "Zähle Vorkommen";
-        }
-    }
+    const [link, setLink] = useState("");
+    const [foregroundColor, setForegroundColor] = useState("#000000");
+    const [backgroundColor, setBackgroundColor] = useState("#ffffff");
 
     return (
         <div className={styles.tools}>
-            <Nav variant="tabs" className={styles.tabContainer} defaultActiveKey={ToolMode.ReplaceString} onSelect={(selectedKey) => {
-                if (selectedKey) {
-                    setMode(selectedKey as ToolMode);
-                }
-            }}>
-                {Object.values(ToolMode).map((mode) => (
-                    <Nav.Item key={mode} className={styles.tabItem}>
-                        <Nav.Link className={styles.tabLink} eventKey={mode}>{getTranslation(mode)}</Nav.Link>
-                    </Nav.Item>
-                ))}
-            </Nav>
-            {mode === ToolMode.ReplaceString && <ReplaceStringToolPage locale={props.locale} text={text} setText={setText} />}
-            {mode === ToolMode.ReplaceStringBetween && <ReplaceStringBetweenToolPage locale={props.locale} text={text} setText={setText} />}
-            {mode === ToolMode.ReplaceStringWithRegex && <ReplaceStringWithRegexToolPage locale={props.locale} text={text} setText={setText} />}
-            {mode === ToolMode.CountOccurrences && <CountOccurrencesToolPage locale={props.locale} text={text} setText={setText} />}
+            <div className={styles.toolPage}>
+                <div className={styles.controls}>
+                    <div className={styles.controlsRow}>
+                        <input type="text" placeholder="Link..." value={link} onChange={(e) => {
+                            setLink(e.target.value);
+                        }} />
+                        <Button variant="success" onClick={() => {
+                            const qrCodeArea: any = document.getElementById("QRCodeArea");
+                            const svg = qrCodeArea.getElementsByTagName("svg")[0] as SVGSVGElement;
+
+                            if (svg) {
+                                svgHandler.downloadSVGAsImageFormat(svg, DEFAULT_SVG_FILENAME, 'svg');
+
+                            }
+                        }}><DownloadIcon />SVG</Button>
+                        <Button variant="success" onClick={() => {
+                            const qrCodeArea: any = document.getElementById("QRCodeArea");
+                            const svg = qrCodeArea.getElementsByTagName("svg")[0] as SVGSVGElement;
+
+                            if (svg) {
+                                svgHandler.downloadSVGAsImageFormat(svg, DEFAULT_SVG_FILENAME, 'png');
+                            }
+                        }}><DownloadIcon />PNG</Button>
+                        <Button variant="success" onClick={() => {
+                            const qrCodeArea: any = document.getElementById("QRCodeArea");
+                            const svg = qrCodeArea.getElementsByTagName("svg")[0] as SVGSVGElement;
+
+                            if (svg) {
+                                svgHandler.downloadSVGAsImageFormat(svg, DEFAULT_SVG_FILENAME, 'jpeg');
+                            }
+                        }}><DownloadIcon />JPEG</Button>
+                    </div>
+                    <div className={[styles.controlsRow, styles.colorControls].join(' ')}>
+                        <div className={styles.colorPicker}>Foreground Color:
+                            <div
+                                className={styles.swatch}
+                                style={{ backgroundColor: foregroundColor }}
+                                onClick={() => {
+                                    const colorPicker = document.getElementById("foregroundColor") as HTMLInputElement;
+                                    colorPicker.click();
+                                }}
+                            ></div>
+                            <input hidden type="color" id="foregroundColor" name="foregroundColor" value={foregroundColor} onChange={(e) => {
+                                setForegroundColor(e.target.value);
+                            }}></input>
+                        </div>
+                        <div className={styles.divider}></div>
+                        <div className={styles.colorPicker}>Background Color:
+                            <div
+                                className={styles.swatch}
+                                style={{ backgroundColor: backgroundColor }}
+                                onClick={() => {
+                                    const colorPicker = document.getElementById("backgroundColor") as HTMLInputElement;
+                                    colorPicker.click();
+                                }}
+                            ></div>
+                            <input hidden type="color" id="backgroundColor" name="backgroundColor" value={backgroundColor} onChange={(e) => {
+                                setBackgroundColor(e.target.value);
+                            }}></input>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.qrCodeArea} id="QRCodeArea">
+                    <QRCode value={link} size={350} fgColor={foregroundColor} bgColor={backgroundColor} />
+                </div>
+            </div>
         </div>
     );
 }

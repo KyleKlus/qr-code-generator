@@ -6,41 +6,12 @@
     min-width: min(1200px, 80dvw);
 }
 
-.tabContainer {
-    --tab-margin: 1rem;
-    width: calc(100% - 2 * var(--tab-margin));
-    margin: 0 var(--tab-margin);
-}
-
-.tabContainer {
-    border: none;
-}
-
-.tabContainer .tabItem .tabLink {
-    color: var(--bg-color-90);
-    box-shadow: none;
-    border-bottom: none;
-
-    &:hover {
-        isolation: unset;
-        border-color: var(--bg-color-50);
-        color: var(--bg-color-90);
-    }
-
-    &[class*='active'] {
-        background-color: var(--bg-color-00);
-        isolation: unset;
-        border-color: var(--bg-color-50);
-        color: var(--bg-color-90);
-    }
-}
-
 .toolPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
     width: 100%;
     background-color: var(--bg-color-00);
     border: 1px solid var(--bg-color-50);
@@ -48,52 +19,82 @@
     padding: 1rem;
 }
 
-.stats {
+.toolPage button {
     display: flex;
-    gap: 0.5rem;
-    padding-left: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    color: var(--bg-color-00) !important;
+    --bs-btn-padding-x: 1rem;
+    --bs-btn-padding-y: 0.5rem;
 }
 
-.divider {
-    border-left: 1px solid black;
+.toolPage button * {
+    color: var(--bg-color-00) !important;
+    width: 1rem;
     height: 1rem;
-    align-self: center;
 }
 
 .controls {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
-.replaceStringControls {
+.controlsRow {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
-.replaceStringControls input {
+.controlsRow input[type="text"] {
     width: 100%;
 }
 
-.dropdown option {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.textareaContainer {
+.colorPicker {
     display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.textarea {
-    width: 100%;
-    min-height: 400px;
-    height: 100%;
-    resize: none;
+.colorPicker .swatch {
+    width: 2rem;
+    height: 1.5rem;
+    outline: none;
+    border: 1px solid var(--bg-color-50);
+    border-radius: 4px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    box-shadow: var(--shadowElevation_1);
+}
+
+.colorPicker .swatch:hover {
+    outline: none;
+    border-color: var(--bg-color-70);
+}
+
+.divider {
+    width: 1px;
+    height: 2rem;
+    background-color: var(--bg-color-50);
+    border: none;
+}
+
+.qrCodeArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.qrCodeArea svg {
+    box-shadow: var(--shadowElevation_3);
 }

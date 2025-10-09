@@ -5,23 +5,23 @@ import styles from '../TextToolsPage.module.css';
 import Tools from "../_components/Tools";
 
 export const metadata: Metadata = {
-    title: "Kyle Klus | Text Tools",
-    description: "Eine Sammlung von Text-Tools, um Text-Manipulation und Text-Formatierung zu unterstützen.",
+    title: "Kyle Klus | QR Code Generator",
+    description: "Ein einfacher QR Code Generator.",
     authors: [{ name: "Kyle Klus", url: "https://kyleklus.de" }],
-    keywords: ["text tools", "text manipulation", "text formatting", "online tools", "free tools", "werkzeuge", "text-tools", "text-manipulation", "text-formatting", "online-tools", "free-tools", "tools", "kostenlos", "gratis"],
+    keywords: ["online tools", "free tools", "werkzeuge", "qr code", "qr code generator", "kyle klus"],
     creator: "Kyle Klus",
     publisher: "Kyle Klus",
-    abstract: "Eine Sammlung von Text-Tools, um Text-Manipulation und Text-Formatierung zu unterstützen.",
-    applicationName: "Text Tools",
+    abstract: "Ein einfacher QR Code Generator.",
+    applicationName: "QR Code Generator",
     category: "werkzeuge",
-    classification: "text tools",
+    classification: "qr code generator",
     openGraph: {
         type: "website",
         locale: "de_DE",
         countryName: "DE",
-        url: "https://kyleklus.de/text-tools/de",
-        title: "Kyle Klus | Text Tools",
-        description: "Eine Sammlung von Text-Tools, um Text-Manipulation und Text-Formatierung zu unterstützen.",
+        url: "https://kyleklus.de/qr-code-generator/de",
+        title: "Kyle Klus | QR Code Generator",
+        description: "Ein einfacher QR Code Generator.",
     },
 }
 
@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 export default function Page() {
     return (
         <Content className={[styles.textToolsPage, 'dotted'].join(' ')}>
-            <h1>Text Tools</h1>
+            <h1>QR Code Generator</h1>
             <Tools locale="de" />
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ fontSize: 'large' }}>Du magst dieses Tool?</div>
