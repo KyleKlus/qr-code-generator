@@ -53,9 +53,9 @@ export default function CustomQRCodeRenderer(props: {
                         }
                     } else {
                         if (found === 1) {
-                            node.setAttribute("fill", secondColor);
-                        } else {
                             node.setAttribute("fill", backgroundColor);
+                        } else {
+                            node.setAttribute("fill", secondColor);
                         }
                     }
                 }
