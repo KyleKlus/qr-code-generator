@@ -10,6 +10,13 @@
   cursor: pointer;
   padding-right: 5px;
   transition: filter 200ms ease;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.logoWrapper:hover {
+  text-decoration: none;
+  box-shadow: none;
 }
 
 .logoWrapper > img {
