@@ -17,10 +17,6 @@ export default function CustomQRCodeRenderer(props: {
     const { link, secondColor, backgroundColor, thirdColor, gradientOrientation, colorMode } = props;
 
     useEffect(() => {
-        if (colorMode === ColorMode.Solid) {
-            return;
-        }
-
         const qrCodeElement: any = document.getElementById("QRCode");
         let found = 0;
         if (qrCodeElement) {
@@ -33,10 +29,12 @@ export default function CustomQRCodeRenderer(props: {
                 });
             }
 
-            const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+            if (colorMode !== ColorMode.Solid) {
+                const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 
-            defs.appendChild(getGradient(secondColor, thirdColor, gradientOrientation));
-            svg.insertBefore(defs, svg.firstChild);
+                defs.appendChild(getGradient(secondColor, thirdColor, gradientOrientation));
+                svg.insertBefore(defs, svg.firstChild);
+            }
 
             svg.childNodes.forEach((node: any) => {
                 if (node.nodeName === "path") {
@@ -50,6 +48,12 @@ export default function CustomQRCodeRenderer(props: {
                     } else if (colorMode === ColorMode.BackgroundGradient) {
                         if (found === 1) {
                             node.setAttribute("fill", "url(#myGradient)");
+                        } else {
+                            node.setAttribute("fill", backgroundColor);
+                        }
+                    } else {
+                        if (found === 1) {
+                            node.setAttribute("fill", secondColor);
                         } else {
                             node.setAttribute("fill", backgroundColor);
                         }
