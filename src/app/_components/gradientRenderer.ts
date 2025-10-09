@@ -1,4 +1,4 @@
-export function getHorizontalGradient(foregroundColor: string, backgroundColor: string) {
+export function getHorizontalGradient(foregroundColor: string, backgroundColor: string, orientation: number) {
     const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
     gradient.setAttribute("id", "myGradient");
     gradient.setAttribute("x1", "0%");

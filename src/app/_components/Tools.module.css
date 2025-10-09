@@ -11,12 +11,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
     width: 100%;
     background-color: var(--bg-color-00);
     border: 1px solid var(--bg-color-50);
     border-radius: var(--border-radius);
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .toolPage button {
@@ -92,7 +92,6 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 4rem;
 }
 
 .qrCodeArea svg {
