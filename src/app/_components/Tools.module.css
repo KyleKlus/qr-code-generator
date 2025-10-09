@@ -1,0 +1,99 @@
+.tools {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: min(1200px, 80dvw);
+}
+
+.tabContainer {
+    --tab-margin: 1rem;
+    width: calc(100% - 2 * var(--tab-margin));
+    margin: 0 var(--tab-margin);
+}
+
+.tabContainer {
+    border: none;
+}
+
+.tabContainer .tabItem .tabLink {
+    color: var(--bg-color-90);
+    box-shadow: none;
+    border-bottom: none;
+
+    &:hover {
+        isolation: unset;
+        border-color: var(--bg-color-50);
+        color: var(--bg-color-90);
+    }
+
+    &[class*='active'] {
+        background-color: var(--bg-color-00);
+        isolation: unset;
+        border-color: var(--bg-color-50);
+        color: var(--bg-color-90);
+    }
+}
+
+.toolPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    background-color: var(--bg-color-00);
+    border: 1px solid var(--bg-color-50);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.stats {
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.divider {
+    border-left: 1px solid black;
+    height: 1rem;
+    align-self: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.replaceStringControls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.replaceStringControls input {
+    width: 100%;
+}
+
+.dropdown option {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.textareaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+    resize: none;
+}
