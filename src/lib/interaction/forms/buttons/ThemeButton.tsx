@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import styles from './ThemeButton.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { basePath } from '@/app/layout';
 
 interface IThemeButtonProps { }
 
@@ -32,7 +33,7 @@ export default function ThemeButton(
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       <Image
-        src={process.env.basePath + '/' + resolvedTheme + '-mode.svg'}
+        src={basePath + '/' + resolvedTheme + '-mode.svg'}
         alt=""
         width={'16'}
         height={'16'}

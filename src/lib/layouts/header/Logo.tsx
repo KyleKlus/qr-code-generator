@@ -1,12 +1,12 @@
 /** @format */
 
+import { basePath } from '@/app/layout';
 import styles from './Logo.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function Logo() {
   const router = useRouter();
-  console.log(process.env.basePath);
   return (
     <div
       onClick={(e) => {
@@ -16,7 +16,7 @@ export default function Logo() {
       className={[styles.logoWrapper].join(' ')}
     >
       <Image
-        src={process.env.basePath + "/KK_Logo.svg"}
+        src={basePath + "/KK_Logo.svg"}
         alt="KK Logo"
         width={'42'}
         height={'42'}

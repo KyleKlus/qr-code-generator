@@ -1,5 +1,6 @@
 /** @format */
 "use client"
+import { basePath } from '@/app/layout';
 import styles from './LanguageSelector.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -25,7 +26,7 @@ export default function LanguageSelector(
       onClick={() => setActiveLanguage(inactiveLanguage)}
     >
       <Image
-        src={process.env.basePath + '/' + activeLanguage + '-mode.png'}
+        src={basePath + '/' + activeLanguage + '-mode.png'}
         alt=""
         width={'23'}
         height={'23'}
