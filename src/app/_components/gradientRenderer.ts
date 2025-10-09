@@ -1,10 +1,13 @@
-export function getHorizontalGradient(foregroundColor: string, backgroundColor: string, orientation: number) {
+export function getGradient(foregroundColor: string, backgroundColor: string, angle: number) {
     const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
     gradient.setAttribute("id", "myGradient");
-    gradient.setAttribute("x1", "0%");
-    gradient.setAttribute("y1", "0%");
-    gradient.setAttribute("x2", "100%");
-    gradient.setAttribute("y2", "0%");
+    const x2 = 50 + Math.cos(angle * Math.PI / 180) * 50;
+    const y2 = 50 + Math.sin(angle * Math.PI / 180) * 50;
+
+    gradient.setAttribute('x1', '50%');
+    gradient.setAttribute('y1', '50%');
+    gradient.setAttribute('x2', `${x2}%`);
+    gradient.setAttribute('y2', `${y2}%`);
     gradient.setAttribute("spreadMethod", "pad");
     gradient.setAttribute("gradientUnits", "userSpaceOnUse");
     const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");

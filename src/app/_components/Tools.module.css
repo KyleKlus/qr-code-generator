@@ -11,12 +11,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     width: 100%;
     background-color: var(--bg-color-00);
     border: 1px solid var(--bg-color-50);
     border-radius: var(--border-radius);
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .toolPage button {
@@ -61,6 +61,35 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+}
+
+.colorPicker.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.colorModes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.colorModeOption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.colorModeOption label,
+.colorModeOption input {
+    cursor: pointer;
+}
+
+.colorModeOption label {
+    text-wrap: nowrap;
 }
 
 .colorPicker .swatch {

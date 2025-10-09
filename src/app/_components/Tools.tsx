@@ -4,13 +4,18 @@ import { useState } from "react";
 import styles from './Tools.module.css';
 import CustomQRCodeRenderer from "./CustomQRCodeRenderer";
 import DownloadButtons from "./DownloadButtons";
-import ColorPicker from "./ColorPicker";
+import { ColorMode } from "./colorControls/ColorModes";
+import ColorControls from "./colorControls/ColorControls";
+import ColorModeControls from "./colorControls/ColorModeControls";
+import GradientControls from "./colorControls/GradientControls";
 
 export default function Tools(props: { locale: 'en' | 'de' }) {
     const [link, setLink] = useState("");
-    const [firstColor, setFirstColor] = useState("#000000");
-    const [secondColor, setSecondeColor] = useState("#ffffff");
-    const [thirdColor, setThirdColor] = useState("#ffffff");
+    const [firstColor, setFirstColor] = useState("#ffffff");
+    const [secondColor, setSecondeColor] = useState("#000000");
+    const [thirdColor, setThirdColor] = useState("#9d9d9dff");
+    const [colorMode, setColorMode] = useState(ColorMode.Solid);
+    const [gradientOrientation, setGradientOrientation] = useState(90);
 
     return (
         <div className={styles.tools}>
@@ -21,22 +26,40 @@ export default function Tools(props: { locale: 'en' | 'de' }) {
                             setLink(e.target.value);
                         }} />
                     </div>
-                    <div className={[styles.controlsRow, styles.colorControls].join(' ')}>
-                        <ColorPicker
-                            text={props.locale === 'en' ? "First Color:" : "Erste Farbe:"}
-                            color={firstColor}
-                            setColor={setFirstColor}
-                        />
-                        <div className={styles.divider} />
-                        <ColorPicker
-                            text={props.locale === 'en' ? "Second Color:" : "Zweite Farbe:"}
-                            color={secondColor}
-                            setColor={setSecondeColor}
-                        />
-                    </div>
+                    <ColorModeControls
+                        locale={props.locale}
+                        colorMode={colorMode}
+                        setColorMode={(colorMode: ColorMode) => {
+                            setColorMode(colorMode);
+                        }} />
+                    <GradientControls
+                        locale={props.locale}
+                        gradientOrientation={gradientOrientation}
+                        disabled={colorMode === ColorMode.Solid}
+                        setGradientOrientation={(gradientOrientation: number) => {
+                            setGradientOrientation(gradientOrientation);
+                        }}
+                    />
+                    <ColorControls
+                        locale={props.locale}
+                        colorMode={colorMode}
+                        firstColor={firstColor}
+                        setFirstColor={setFirstColor}
+                        secondColor={secondColor}
+                        setSecondColor={setSecondeColor}
+                        thirdColor={thirdColor}
+                        setThirdColor={setThirdColor}
+                    />
                 </div>
                 <div className={styles.qrCodeArea} id="QRCodeArea">
-                    <CustomQRCodeRenderer link={link} foregroundColor={firstColor} backgroundColor={secondColor} />
+                    <CustomQRCodeRenderer
+                        link={link}
+                        backgroundColor={firstColor}
+                        secondColor={secondColor}
+                        thirdColor={thirdColor}
+                        gradientOrientation={gradientOrientation}
+                        colorMode={colorMode}
+                    />
                 </div>
                 <div className={styles.controls}>
                     <DownloadButtons />
