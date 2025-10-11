@@ -22,7 +22,7 @@ export default function Tools(props: { locale: 'en' | 'de' }) {
             <div className={styles.toolPage}>
                 <div className={styles.controls}>
                     <div className={styles.controlsRow}>
-                        <input type="text" placeholder="Link..." value={link} onChange={(e) => {
+                        <input className="textboxClass" type="text" placeholder="Link..." value={link} onChange={(e) => {
                             setLink(e.target.value);
                         }} />
                     </div>

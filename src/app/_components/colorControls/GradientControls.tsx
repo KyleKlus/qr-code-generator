@@ -10,7 +10,9 @@ export default function GradientControls(props: {
 
     return (
         <div className={[styles.controlsRow, styles.colorControls].join(' ')}>
-            <label htmlFor="gradientOrientation">{props.locale === 'en' ? "Gradient Orientation" : "Winkel der Farbverläufe"}{` | ${gradientOrientation}°`}</label>
+            <label htmlFor="gradientOrientation" style={{ display: 'flex' }}>
+                {props.locale === 'en' ? "Gradient Orientation" : "Winkel der Farbverläufe"} | <div style={{ width: '3ch', textAlign: 'end' }}>{gradientOrientation}</div>°
+            </label>
             <input type="range" name='gradientOrientation' min="0" max="360" step="1" value={gradientOrientation} disabled={disabled} onChange={(e) => {
                 setGradientOrientation(parseInt(e.target.value));
             }} />
