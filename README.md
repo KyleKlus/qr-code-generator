@@ -14,3 +14,9 @@ It is part of a series of web apps, which are all centered around being free to 
 -   Colorize QR codes
 -   Add a gradient to the QR code
 -   Download the QR code as an image/svg
+
+## Planned Features
+
+-  Adding a logo to the QR code
+-  Changing the border of the QR code
+-  Changing the shape of the QR code
