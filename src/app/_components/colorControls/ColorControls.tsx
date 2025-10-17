@@ -15,20 +15,19 @@ export default function Tools(props: {
     const { colorMode, firstColor, setFirstColor, secondColor, setSecondColor, thirdColor, setThirdColor } = props;
     return (
         <div className={[styles.controlsRow, styles.colorControls].join(' ')}>
-
             <ColorPicker
-                text={props.locale === 'en' ? "First Color:" : "Erste Farbe:"}
+                text={props.locale === 'en' ? "1. Color:" : "1. Farbe:"}
                 color={firstColor}
                 setColor={setFirstColor}
             />
             <ColorPicker
-                text={props.locale === 'en' ? "Second Color:" : "Zweite Farbe:"}
+                text={props.locale === 'en' ? "2. Color:" : "2. Farbe:"}
                 color={secondColor}
                 setColor={setSecondColor}
             />
             <ColorPicker
                 disabled={colorMode === ColorMode.Solid}
-                text={props.locale === 'en' ? "Third Color:" : "Dritte Farbe:"}
+                text={props.locale === 'en' ? "3. Color:" : "3. Farbe:"}
                 color={thirdColor}
                 setColor={setThirdColor}
             />

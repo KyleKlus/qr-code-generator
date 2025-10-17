@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: min(1200px, 80dvw);
 }
 
 .toolPage {
@@ -75,6 +74,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    width: 100%;
 }
 
 .colorModeOption {
@@ -129,6 +129,39 @@
     box-shadow: var(--shadowElevation_3);
 }
 
+.donationContainer {
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.donateButton {
+    text-decoration: none;
+    box-shadow: var(--shadowElevation_1);
+    background-color: var(--color-accent-00);
+    color: var(--bg-color-00);
+    border: 1px solid var(--bg-color-50);
+    border-radius: var(--border-radius);
+    padding: .4rem .8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        box-shadow: var(--shadowElevation_1);
+        background-color: var(--color-accent-10);
+        color: var(--bg-color-00);
+    }
+}
+
+@media (max-width: 850px) {
+    .donationContainer {
+        font-size: medium;
+    }
+}
+
 @media (max-width: 700px) {
     .tools {
         width: 100%;
@@ -138,9 +171,16 @@
         border-radius: 0;
         border-left: none;
         border-right: none;
-        padding: 2rem;
+        padding: 1rem;
+        padding-bottom: 4rem;
         gap: 2rem;
     }
 }
 
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+
+    .tools,
+    .tools .toolPage button {
+        font-size: small;
+    }
+}

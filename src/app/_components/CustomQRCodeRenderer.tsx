@@ -66,7 +66,7 @@ export default function CustomQRCodeRenderer(props: {
     return (
         <div id="QRCode">
             <QRCode
-                value={link} size={350}
+                value={link} size={300}
                 fgColor={secondColor}
                 bgColor={backgroundColor}
             />
