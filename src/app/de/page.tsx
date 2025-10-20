@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 
 export default function Page() {
     return (
-        <Content className={[styles.toolPage, 'dotted'].join(' ')}>
+        <Content className={[styles.toolPage, 'crossed'].join(' ')}>
             < h1 > QR Code Generator</ h1>
             <Tools locale="de" />
         </Content >
