@@ -3,7 +3,7 @@ import Content from "@/lib/container/Content";
 import type { Metadata, Viewport } from 'next'
 import styles from '../QrCodePage.module.css';
 import Tools from "../_components/Tools";
-import { siteConfig } from "../siteConfig";
+import { siteConfig } from "../../siteConfig";
 
 export const metadata: Metadata = {
     ...siteConfig.metadata.de,
