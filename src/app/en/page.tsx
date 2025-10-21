@@ -3,13 +3,13 @@ import Content from "@/lib/container/Content";
 import type { Metadata, Viewport } from 'next'
 import styles from '../QrCodePage.module.css';
 import Tools from "../_components/Tools";
-import { defaultSiteConfig } from "../defaultSiteConfig";
+import { siteConfig } from "../siteConfig";
 
 export const metadata: Metadata = {
-    ...defaultSiteConfig.metadata.en,
+    ...siteConfig.metadata.en,
     openGraph: {
-        ...defaultSiteConfig.metadata.en.openGraph,
-        url: `${defaultSiteConfig.metadata.en.openGraph.url}/en`
+        ...siteConfig.metadata.en.openGraph,
+        url: `${siteConfig.metadata.en.openGraph.url}/en`
     }
 }
 

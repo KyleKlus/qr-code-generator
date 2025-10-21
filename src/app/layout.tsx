@@ -1,6 +1,4 @@
 /** @format */
-import Footer from '@/lib/layouts/footer/Footer';
-import Header from '@/lib/layouts/header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/lib/default-look.css';
 import './globals.css';
@@ -12,6 +10,7 @@ import { ThemeProvider } from '@/lib/provider/theme-provider';
 import ThemeButton from '@/lib/interaction/forms/buttons/ThemeButton';
 import ScrollToTargetButton from '@/lib/interaction/forms/buttons/ScrollToTargetButton';
 import Logo from '@/lib/layouts/header/Logo';
+import QuickInfoFooter from '@/lib/layouts/footer/QuickInfoFooter';
 
 export const basePath = '/qr-code-generator';
 
@@ -35,7 +34,7 @@ export default function Layout(props: React.PropsWithChildren<ILayoutProps>) {
                         <ScrollToTargetButton targetElementId='top' />
                         <div id={'top'}></div>
                         {props.children}
-                        <Footer />
+                        <QuickInfoFooter />
                     </Main>
                 </ThemeProvider>
             </body>

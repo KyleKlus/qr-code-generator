@@ -1,4 +1,4 @@
-const basePath: string = '/qr-code-generator';
+const basePath: string = '';
 const url: string = 'https://kyleklus.de';
 const heropageUrl: string = `${url}/#heroPage`;
 const portfoliopageUrl: string = `${url}/#portfolioPage`;
@@ -17,24 +17,14 @@ const kofiUrl: string = 'https://ko-fi.com/majorenkidu';
 const contactUrl: string = 'mailto:kyle.klus.2@gmail.com';
 const author: string = 'Kyle Klus';
 const metadataEn = {
-    title: "Kyle Klus | QR Code Generator",
-    description: "A simple QR Code generator.",
-    keywords: ["qr code", "qr code generator", "kyle klus", "tools", "online tools", "free tools",],
-    abstract: "A simple QR Code generator.",
-    applicationName: "QR Code Generator",
-    category: "tools",
-    classification: "qr code generator",
+    title: "Kyle Klus | Website 🚀",
+    description: "Website of Kyle Klus.",
     openGraph: {
         type: "website",
-        locale: "en_US",
-        countryName: "US",
-        url: `${url}${basePath}`,
-        title: "Kyle Klus | QR Code Generator",
-        description: "A simple QR Code generator.",
+        url: url,
+        title: "Kyle Klus | Website",
+        description: "Website of Kyle Klus.",
     },
-    authors: [{ name: author, url: url }],
-    creator: author,
-    publisher: author,
 }
 
 export const defaultSiteConfig = {
@@ -60,15 +50,10 @@ export const defaultSiteConfig = {
         en: metadataEn,
         de: {
             ...metadataEn,
-            description: "Ein einfacher QR Code Generator.",
-            keywords: ["online tools", "free tools", "gratis", "kostenlos", "werkzeuge", "qr code", "qr code generator", "kyle klus"],
-            abstract: "Ein einfacher QR Code Generator.",
-            category: "werkzeuge",
+            description: "Website von Kyle Klus.",
             openGraph: {
                 ...metadataEn.openGraph,
-                locale: "de_DE",
-                countryName: "DE",
-                description: "Ein einfacher QR Code Generator.",
+                description: "Website von Kyle Klus.",
             },
         }
     }
